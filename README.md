@@ -265,3 +265,10 @@ If you have any issues or questions, reach out to us on [Discord](https://discor
 -- Replace the URL in the same file with postgres connection
 -- Not found the adapter for mongo db, to replace it with postgresAdapter [Issue facing]
 -- Error showing: MongooseError: Operation `users.countDocuments()` buffering timed out after 10000ms
+
+# new packages installed
+-- npm install @payloadcms/db-postgres@0.1.9
+
+-- npm install knex pg
+-- modified .env file
+-- db object in payload.config

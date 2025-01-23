@@ -8,6 +8,8 @@ import dotenv from 'dotenv'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 
+import { postgresAdapter } from '@payloadcms/db-postgres'
+
 import Categories from './collections/Categories'
 import Comments from './collections/Comments'
 import { Media } from './collections/Media'
@@ -42,6 +44,15 @@ export default buildConfig({
       beforeDashboard: [BeforeDashboard],
     },
   },
+   // database-adapter-config-start
+   db: postgresAdapter({
+    // Postgres-specific arguments go here.
+    // `pool` is required.
+    pool: {
+      connectionString: process.env.DATABASE_URI,
+    },
+  }),
+  // database-adapter-config-end
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   collections: [Pages, Posts, Projects, Media, Categories, Users, Comments],
   globals: [Settings, Header, Footer],
